@@ -21,14 +21,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
 
-      - name: Set up Cocoapods
-        run: gem install cocoapods
+      - name: Bundle Install
+        run: bundle install
+      
+      - name: Install Cocoapods
+        run: bundle exec pod install
 
       - name: Bump version
         run: ruby ./scripts/bump_pod_version.rb ${{ github.event.inputs.versionBumpLevel }}
