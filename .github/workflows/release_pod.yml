@@ -51,10 +51,9 @@ jobs:
           name: v${{ env.VERSION }}
           draft: false
           prerelease: false
-          files: 'scripts/build/OSBarcodeLib.zip'
 
-      - name: Deploy to Cocoapods
-        run: pod trunk push ./OSBarcodeLib.podspec --allow-warnings
+      #- name: Deploy to Cocoapods
+      #  run: pod trunk push ./OSBarcodeLib.podspec --allow-warnings
       
       - name: Commit changes
         run: |
