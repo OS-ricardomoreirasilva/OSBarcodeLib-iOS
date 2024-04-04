@@ -28,11 +28,11 @@ jobs:
       - name: Set up Cocoapods
         run: gem install cocoapods
 
+      - name: Set up XCode 
+        run: sudo xcode-select --switch '/Applications/Xcode_14.1.app/Contents/Developer'
+
       - name: Bump version
         run: ruby ./scripts/bump_pod_version.rb ${{ github.event.inputs.versionBumpLevel }}
-
-      - name: Set up XCode 
-        run: sudo xcode-select -s '/Applications/Xcode_14.1.app/Contents/Developer'
 
       - name: Build XCFramework
         run: ./scripts/build_framework.sh
